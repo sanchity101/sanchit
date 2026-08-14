@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background dark:bg-background" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudVault - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001355",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c5d9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#eef0f2",
+                        "tertiary-fixed": "#e0e3e5",
+                        "tertiary": "#525557",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#23005c",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "tertiary-container": "#6a6d6f",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#104af0",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#0040df",
+                        "outline": "#747688",
+                        "secondary": "#6b38d4",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-container": "#efefff",
+                        "secondary-container": "#8455ef",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b8c3ff",
+                        "background": "#f8f9ff",
+                        "primary-container": "#2d5bff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full flex items-center justify-center font-body-md text-on-surface bg-background">
+<div class="w-full max-w-md p-lg sm:p-2xl bg-surface-container-lowest rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] border border-outline-variant/30 flex flex-col items-center">
+<!-- Logo -->
+<div class="mb-lg">
+<img alt="CloudVault Logo" class="h-16 w-16 object-contain rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApJWhsCLUiLH-Ao7dKyI4okBQgqqyXm4266SwkDPJiWlJWS_4NKr4pMOevEJVAmVy52K7v5zy5wyG4WhXfp88sHPlLdu3zfukJDCzl6YcQ5B4fsQtdVywZ6NZne0k-TzFIuABqLyZ3thCdvJP0DpFPfToTXy3s-Ql6BeWEltzR9bM35GiVtaihHpdOcGuYQKXrEpeAp_3QK1B56y3JUneT6OQgETdydvPO2CTISCVxmIUAELT6QSpt"/>
+</div>
+<!-- Heading -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm text-center">Welcome Back</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl text-center">Sign in to securely access your files.</p>
+<!-- Form -->
+<form action="dashboard.html" class="w-full space-y-md" method="POST">
+<!-- Email Input -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm" for="email">Email Address</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" data-icon="mail">mail</span>
+</span>
+<input class="block w-full pl-[40px] pr-sm py-sm rounded-lg bg-surface border border-outline-variant text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow sm:text-body-md font-body-md" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm" for="password">Password</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-sm">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</span>
+<input class="block w-full pl-[40px] pr-sm py-sm rounded-lg bg-surface border border-outline-variant text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow sm:text-body-md font-body-md" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Error State Placeholder (Hidden by default) -->
+<div class="hidden flex items-start p-sm bg-error-container text-on-error-container rounded-md border border-error/20" id="error-message">
+<span aria-hidden="true" class="material-symbols-outlined mr-sm shrink-0" data-icon="error">error</span>
+<p class="font-body-sm text-body-sm">Incorrect email or password. Please try again.</p>
+</div>
+<!-- Options -->
+<div class="flex items-center justify-between pt-sm">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary bg-surface" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block font-body-sm text-body-sm text-on-surface-variant" for="remember-me">Remember me</label>
+</div>
+<div class="text-sm">
+<a class="font-label-sm text-label-sm text-primary hover:text-on-primary-fixed-variant transition-colors" href="#">Forgot Password?</a>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full flex justify-center py-md px-md border border-transparent rounded-lg shadow-sm font-label-md text-label-md text-on-primary bg-primary hover:bg-on-primary-fixed-variant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">
+                Login
+            </button>
+</form>
+<!-- Footer Links -->
+<p class="mt-lg text-center font-body-sm text-body-sm text-on-surface-variant">
+            Don't have an account? 
+            <a class="font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors" href="register.html">Create Account</a>
+</p>
+</div>
+<script>
+        // Simple script to toggle error state for demonstration
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const errorMsg = document.getElementById('error-message');
+            errorMsg.classList.remove('hidden');
+            setTimeout(() => {
+                errorMsg.classList.add('hidden');
+            }, 3000);
+        });
+    </script>
+</body></html>

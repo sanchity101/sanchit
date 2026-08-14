@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudVault - Upload</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#444749",
+                      "on-primary-fixed": "#001355",
+                      "on-background": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#213145",
+                      "surface-container-high": "#dce9ff",
+                      "outline-variant": "#c4c5d9",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-container": "#eef0f2",
+                      "tertiary-fixed": "#e0e3e5",
+                      "tertiary": "#525557",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434656",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#b8c3ff",
+                      "primary-fixed": "#dde1ff",
+                      "secondary-fixed": "#e9ddff",
+                      "on-secondary-fixed": "#23005c",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "on-primary-fixed-variant": "#0035bd",
+                      "tertiary-container": "#6a6d6f",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "surface-container": "#e5eeff",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-tint": "#104af0",
+                      "on-secondary-container": "#fffbff",
+                      "primary": "#0040df",
+                      "outline": "#747688",
+                      "secondary": "#6b38d4",
+                      "on-tertiary-fixed": "#191c1e",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "on-primary-container": "#efefff",
+                      "secondary-container": "#8455ef",
+                      "surface": "#f8f9ff",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#b8c3ff",
+                      "background": "#f8f9ff",
+                      "primary-container": "#2d5bff",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#d3e4fe",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "container-max": "1440px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "2xl": "48px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "3xl": "64px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined[data-weight="fill"] { font-variation-settings: 'FILL' 1; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col p-md bg-surface-container-lowest dark:bg-inverse-surface shadow-sm h-full w-[280px] fixed left-0 top-0 z-20">
+<div class="flex items-center gap-md mb-xl px-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-weight="fill">cloud</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CloudVault</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Secure Storage</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-sm">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="my_files.html">
+<span class="material-symbols-outlined">folder_open</span>
+                My Files
+            </a>
+<a class="flex items-center gap-md bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-all duration-200 ease-in-out font-label-md text-label-md" href="upload.html">
+<span class="material-symbols-outlined">cloud_upload</span>
+                Upload
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="profile.html">
+<span class="material-symbols-outlined">person</span>
+                Profile
+            </a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col gap-md">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg hover:bg-on-primary-fixed transition-colors">Upgrade Storage</button>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="login.html">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-[280px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-lg py-md w-full bg-surface-bright dark:bg-background z-10 sticky top-0">
+<div class="flex-1 flex items-center gap-md max-w-2xl bg-surface-container-low rounded-xl px-md py-sm focus-within:ring-2 focus-within:ring-primary/20 transition-shadow">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant" placeholder="Search files, folders..." type="text"/>
+</div>
+<div class="flex items-center gap-lg ml-lg">
+<button class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-full p-sm transition-shadow duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30">
+<img alt="User Profile Image" class="w-full h-full object-cover" data-alt="A professional headshot of a person looking friendly and modern, styled as a minimal digital avatar, set against a solid pastel background, high key lighting, clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3HUQSsO0VINZNXWhxgJ6z6dyD9s5ZfSE3kGV-NuV9SstLUlhDy32oKIY4gGPI-QHqB5VEMjQFtwGpz6wEm9KoFejDFhIRYK34n-AI7ukjQZXzm_qH1ZqE5_FBP4s1id_dL9xPRUyY8_t0TFsBmds_s6uqx3LelPe3mHmOysYL9ezV-BcXwbjGX9mBn9CUZmwWpn2wMEqx-ru_-guSiIhmtKoV0G9hrkd4z5_s_A185mSqwh7M_rQ6"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-lg md:p-xl max-w-container-max mx-auto w-full">
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Upload Files</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Securely store and manage your data.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Upload Area (Bento large) -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<div class="border-2 border-dashed border-primary/40 rounded-xl bg-surface hover:bg-surface-container-low transition-colors duration-300 flex flex-col items-center justify-center p-3xl text-center min-h-[400px] cursor-pointer group shadow-sm hover:shadow-md">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center mb-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl text-primary" data-weight="fill">cloud_upload</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-sm">Drag &amp; Drop files here</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">or click to browse your computer</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-sm px-xl rounded-lg hover:bg-on-primary-fixed transition-colors shadow-sm">
+                            Choose Files
+                        </button>
+<div class="mt-xl flex items-center gap-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">info</span> File size limit: 50MB</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Supported types: PDF, JPG, PNG, DOCX</span>
+</div>
+</div>
+</div>
+<!-- Active Uploads (Side column) -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 p-lg flex flex-col h-full">
+<h3 class="font-headline-md text-headline-md text-on-background mb-lg flex items-center justify-between">
+                        Active Uploads
+                        <span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm py-xs px-sm rounded-full">2</span>
+</h3>
+<div class="flex-1 flex flex-col gap-md overflow-y-auto pr-sm">
+<!-- Upload Item 1 -->
+<div class="bg-surface rounded-lg p-md border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-tertiary">picture_as_pdf</span>
+<p class="font-label-md text-label-md text-on-background truncate">Q4_Financial_Report.pdf</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>Uploading...</span>
+<span>45%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1 mt-xs">
+<div class="bg-gradient-to-r from-primary to-secondary h-1 rounded-full w-[45%]"></div>
+</div>
+</div>
+<!-- Upload Item 2 -->
+<div class="bg-surface rounded-lg p-md border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-tertiary">image</span>
+<p class="font-label-md text-label-md text-on-background truncate">Marketing_Assets_Final.zip</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>Uploading...</span>
+<span>82%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1 mt-xs">
+<div class="bg-gradient-to-r from-primary to-secondary h-1 rounded-full w-[82%]"></div>
+</div>
+</div>
+<!-- Completed Item -->
+<div class="bg-surface-container-low rounded-lg p-md border border-outline-variant/10 flex flex-col gap-sm opacity-70">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-primary">description</span>
+<p class="font-label-md text-label-md text-on-background truncate line-through decoration-outline-variant">Project_Brief_v2.docx</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
+<span>Complete</span>
+<span>100%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - CloudVault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001355",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c5d9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#eef0f2",
+                        "tertiary-fixed": "#e0e3e5",
+                        "tertiary": "#525557",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#23005c",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "tertiary-container": "#6a6d6f",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#104af0",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#0040df",
+                        "outline": "#747688",
+                        "secondary": "#6b38d4",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-container": "#efefff",
+                        "secondary-container": "#8455ef",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b8c3ff",
+                        "background": "#f8f9ff",
+                        "primary-container": "#2d5bff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-md bg-surface-container-lowest dark:bg-inverse-surface shadow-sm docked h-full w-[280px] hidden md:flex">
+<div class="flex items-center gap-sm mb-xl px-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CloudVault</span>
+</div>
+<div class="px-sm mb-lg">
+<p class="font-label-sm text-label-sm text-outline mb-xs">Secure Storage</p>
+</div>
+<ul class="flex flex-col gap-sm flex-1">
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="my_files.html">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label-md text-label-md">My Files</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="upload.html">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+<span class="font-label-md text-label-md">Upload</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="profile.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-all duration-200 ease-in-out" href="settings.html">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full py-sm px-md bg-primary text-on-primary rounded-full font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors shadow-sm flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+                Upgrade Storage
+            </button>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm mt-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="login.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 md:ml-[280px]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-lg py-md bg-surface-bright dark:bg-background docked top-0 w-full flat no shadows transition-shadow duration-200">
+<div class="flex items-center gap-md w-full max-w-md">
+<!-- Search bar on left -->
+<div class="relative w-full hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="w-full bg-surface-container text-on-surface pl-xl pr-md py-sm rounded-full border-none focus:ring-2 focus:ring-primary/20 font-body-sm text-body-sm transition-all shadow-inner" placeholder="Search settings..." type="text"/>
+</div>
+<!-- Mobile brand (if sidebar hidden) -->
+<div class="md:hidden flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">CloudVault</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-xs right-xs w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="User Profile Image" class="w-full h-full object-cover" data-alt="A professional headshot of a person, soft modern studio lighting, clear light-mode aesthetic, corporate but friendly expression, high resolution photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_3_tRMUQz-j1pffrXlRbZZCvbG7lOcevBrtnkXb5TJwQVFf_zL5ZvVZsi90kdrLxECMbBpWehiaOIYowe_ceAvdoC76jrnJtIwH7JgnFH9gqrmru_kuGkol1HNcQ8JgPEIpJEgmVIvuBV6cm7r8l8f3r79rVRco3sAQAEir_ZaTPl-Wp2jPtnVzkMHqNK_xAUbzWCYFRk0TTwgRk6NphYsM90IRW7_PBBBPQnpk-LeV8dLrfNIsgY"/>
+</button>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="flex-1 p-lg sm:p-xl overflow-y-auto">
+<div class="max-w-4xl mx-auto space-y-xl">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Settings</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your account preferences and security configurations.</p>
+</div>
+<!-- Settings Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Nav (In-page) for larger screens -->
+<div class="hidden lg:block lg:col-span-3 sticky top-xl">
+<nav class="flex flex-col gap-xs">
+<a class="px-md py-sm rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-sm" href="#account">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+                                Account
+                            </a>
+<a class="px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md flex items-center gap-sm transition-colors" href="#storage">
+<span class="material-symbols-outlined">hard_drive</span>
+                                Storage
+                            </a>
+<a class="px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md flex items-center gap-sm transition-colors" href="#appearance">
+<span class="material-symbols-outlined">palette</span>
+                                Appearance
+                            </a>
+<a class="px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md flex items-center gap-sm transition-colors" href="#security">
+<span class="material-symbols-outlined">security</span>
+                                Security
+                            </a>
+</nav>
+</div>
+<!-- Main Settings Content -->
+<div class="lg:col-span-9 space-y-xl">
+<!-- Account Settings Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden" id="account">
+<div class="p-md sm:p-lg border-b border-outline-variant/30 bg-surface/50">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+                                    Account Settings
+                                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Update your password and basic account information.</p>
+</div>
+<div class="p-md sm:p-lg space-y-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Current Password</label>
+<input class="w-full bg-surface-container text-on-surface px-md py-sm rounded-lg border border-transparent focus:border-primary/20 focus:ring-2 focus:ring-primary/20 font-body-md text-body-md transition-all" type="password" value="********"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">New Password</label>
+<input class="w-full bg-surface-container text-on-surface px-md py-sm rounded-lg border border-transparent focus:border-primary/20 focus:ring-2 focus:ring-primary/20 font-body-md text-body-md transition-all" placeholder="Enter new password" type="password"/>
+</div>
+</div>
+<div class="flex justify-end gap-sm pt-sm">
+<button class="px-lg py-sm rounded-full text-primary border border-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors">Reset Password</button>
+<button class="px-lg py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors shadow-sm">Save Changes</button>
+</div>
+</div>
+</section>
+<!-- Storage Settings Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden" id="storage">
+<div class="p-md sm:p-lg border-b border-outline-variant/30 bg-surface/50">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">hard_drive_2</span>
+                                    Storage Settings
+                                </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Review your current usage and file limits.</p>
+</div>
+<div class="p-md sm:p-lg space-y-lg">
+<div>
+<div class="flex justify-between items-end mb-sm">
+<div>
+<span class="font-headline-md text-headline-md text-on-surface">15.2 GB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> used of 50 GB</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">30%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-md flex items-center justify-between border border-outline-variant/20">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Maximum File Size</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Current limit per individual upload</p>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">50 MB</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

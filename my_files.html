@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Files - CloudVault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001355",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c5d9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#eef0f2",
+                        "tertiary-fixed": "#e0e3e5",
+                        "tertiary": "#525557",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#23005c",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "tertiary-container": "#6a6d6f",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#104af0",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#0040df",
+                        "outline": "#747688",
+                        "secondary": "#6b38d4",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-container": "#efefff",
+                        "secondary-container": "#8455ef",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b8c3ff",
+                        "background": "#f8f9ff",
+                        "primary-container": "#2d5bff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: theme('colors.outline-variant');
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-lowest dark:bg-inverse-surface shadow-sm docked left-0 h-full w-[280px] fixed left-0 top-0 h-full flex flex-col p-md z-20">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CloudVault</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Secure Storage</p>
+</div>
+<div class="flex-grow flex flex-col gap-sm">
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-all duration-200 ease-in-out font-label-md text-label-md" href="my_files.html">
+<span class="material-symbols-outlined" data-icon="folder_open" data-weight="fill" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+<span>My Files</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="upload.html">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+<span>Upload</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md mt-auto" href="profile.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="login.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+<div class="mt-lg">
+<button class="w-full bg-surface-container text-primary font-label-md text-label-md py-sm rounded-lg border border-primary-fixed hover:bg-primary-container transition-colors">Upgrade Storage</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-h-screen md:ml-[280px]">
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-background docked top-0 w-full flat no shadows flex justify-between items-center px-lg py-md w-full sticky z-10">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 pl-xl pr-md font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-20 transition-shadow" placeholder="Search your files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-shadow duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant shrink-0">
+<img alt="User Profile Image" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional individual against a clean, light-mode corporate background. The lighting is soft and studio-quality, emphasizing a modern and trustworthy aesthetic suitable for a tech platform profile picture. The color palette is neutral with hints of sophisticated corporate blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkYagOustUWdfOI8aYOaj7Ho-xFSpAS0bk-5HR3QD3qmbgg5pWbAz9R2QYvsbkQeBkmnY9emPbWzXDThIwvma5aIsi-KQuylmdtb29zyrmnKG7evAJq79_SNNa7GAhPHiuD6RdBjHn2HntdFOBuiat8TL_qD8hJCJbDJyiSEob_kw3Z8uRZZSK0SHY6IIYDqCISLG0jwTldprBa9mpxPGwzu8sBFmQtfq0-xq46nsErLJiuNsPGbn7"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-lg md:p-xl custom-scrollbar overflow-y-auto">
+<div class="max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-md">
+<h2 class="font-headline-lg text-headline-lg text-on-background">My Files</h2>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-2 rounded-lg hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-2 w-fit shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                        + Upload File
+                    </button>
+</div>
+<!-- Filters & Controls -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div class="flex flex-wrap gap-sm">
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label-sm text-label-sm border border-transparent">All</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm border border-outline-variant hover:bg-surface-container-low transition-colors">Documents</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm border border-outline-variant hover:bg-surface-container-low transition-colors">Images</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm border border-outline-variant hover:bg-surface-container-low transition-colors">Videos</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm border border-outline-variant hover:bg-surface-container-low transition-colors">PDFs</button>
+</div>
+<div class="flex items-center gap-xs bg-surface-container-lowest border border-outline-variant rounded-lg p-1">
+<button aria-label="List View" class="p-1.5 bg-surface-container-high rounded text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="view_list">view_list</span>
+</button>
+<button aria-label="Grid View" class="p-1.5 text-on-surface-variant hover:bg-surface-container-low rounded">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+</button>
+</div>
+</div>
+<!-- File List (Bento-ish structured list) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 px-md py-sm bg-surface-container-low border-b border-outline-variant font-label-sm text-label-sm text-on-surface-variant">
+<div class="col-span-6 md:col-span-5">Name</div>
+<div class="hidden md:block col-span-2">Type</div>
+<div class="col-span-3 md:col-span-2">Size</div>
+<div class="hidden md:block col-span-2">Upload Date</div>
+<div class="col-span-3 md:col-span-1 text-right">Actions</div>
+</div>
+<!-- Table Body -->
+<div class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
+<div class="col-span-6 md:col-span-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Q4_Financial_Report.pdf</p>
+</div>
+</div>
+<div class="hidden md:flex col-span-2 items-center">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">PDF</span>
+</div>
+<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
+                                4.2 MB
+                            </div>
+<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
+                                Oct 24, 2023
+                            </div>
+<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
+<div class="col-span-6 md:col-span-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</div>
+<div class="truncate">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Hero_Banner_V2.png</p>
+</div>
+</div>
+<div class="hidden md:flex col-span-2 items-center">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">Image</span>
+</div>
+<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
+                                1.8 MB
+                            </div>
+<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
+                                Oct 22, 2023
+                            </div>
+<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
+<div class="col-span-6 md:col-span-5 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="truncate">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">Project_Alpha_Specs.docx</p>
+</div>
+</div>
+<div class="hidden md:flex col-span-2 items-center">
+<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">Document</span>
+</div>
+<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
+                                856 KB
+                            </div>
+<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
+                                Oct 20, 2023
+                            </div>
+<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
+<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
