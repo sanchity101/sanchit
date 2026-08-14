@@ -2,7 +2,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CloudVault - Features</title>
+<title>CloudVault - How it Works</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -124,8 +124,8 @@
 </div>
 <div class="hidden md:flex items-center gap-lg">
 <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md scale-95 duration-150" href="index.html">Home</a>
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors scale-95 duration-150" href="features.html">Features</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md scale-95 duration-150" href="how-it-works.html">How it Works</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md scale-95 duration-150" href="features.html">Features</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors scale-95 duration-150" href="how-it-works.html">How it Works</a>
 </div>
 <div class="flex items-center gap-md">
 <a class="text-primary font-label-md text-label-md hover:bg-surface-container-low px-md py-sm rounded-lg transition-colors" href="login.html">Login</a>
@@ -134,80 +134,101 @@
 </div>
 </nav>
 
-<!-- Main Features Header -->
+<!-- Main How it Works Header -->
 <main class="pt-[100px] flex-grow">
     <!-- Header Section -->
     <section class="max-w-container-max mx-auto px-lg py-3xl text-center">
         <h1 class="font-display-lg text-display-lg text-on-background text-balance mb-lg">
-            Built for <span class="text-primary">Performance.</span><br/>
-            Designed for <span class="text-secondary">Security.</span>
+            Simple. <span class="text-primary">Secure.</span> Seamless.
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[700px] mx-auto text-balance">
-            Discover all the powerful tools and capabilities CloudVault offers to keep your digital life organized, secure, and accessible everywhere.
+            Setting up your secure cloud storage takes just a few minutes. Follow these simple steps to ensure your files are backed up and safe forever.
         </p>
     </section>
 
-    <!-- Features Grid -->
+    <!-- Step-by-Step Instructions -->
     <section class="bg-surface-container-lowest border-y border-outline-variant/20 py-3xl">
-        <div class="max-w-container-max mx-auto px-lg">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
-                <!-- Feature 1 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-primary mb-md" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Military-Grade Encryption</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Every file you upload is encrypted with AES-256 before it leaves your device. Only you hold the key to decrypt your data.
-                    </p>
+        <div class="max-w-[900px] mx-auto px-lg">
+            
+            <div class="space-y-3xl relative before:absolute before:inset-0 before:ml-[36px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-outline-variant/50 before:to-transparent">
+                
+                <!-- Step 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full border-4 border-surface-container-lowest bg-primary-container text-on-primary-container shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-ambient z-10 transition-transform duration-300 group-hover:scale-110">
+                        <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">person_add</span>
+                    </div>
+                    <div class="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] p-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:shadow-ambient transition-all duration-300">
+                        <div class="flex items-center gap-sm mb-sm">
+                            <span class="font-label-sm text-primary uppercase tracking-wider font-bold">Step 1</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Create Your Account</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                            Begin by signing up for a free CloudVault account. You only need a valid email address and a strong password to get started.
+                        </p>
+                        <a href="register.html" class="inline-flex items-center gap-xs font-label-md text-primary hover:text-on-primary-fixed-variant transition-colors">
+                            Sign up now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
                 </div>
-                <!-- Feature 2 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-secondary mb-md" style="font-variation-settings: 'FILL' 1;">speed</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Lightning Fast Sync</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Our distributed edge network ensures your files upload and download at maximum speed, regardless of your global location.
-                    </p>
+
+                <!-- Step 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full border-4 border-surface-container-lowest bg-secondary-container text-on-secondary-container shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-ambient z-10 transition-transform duration-300 group-hover:scale-110">
+                        <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+                    </div>
+                    <div class="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] p-lg rounded-2xl bg-surface-container-highest border border-outline-variant/30 hover:shadow-ambient transition-all duration-300">
+                        <div class="flex items-center gap-sm mb-sm">
+                            <span class="font-label-sm text-secondary uppercase tracking-wider font-bold">Step 2</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Upload Your Files</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Navigate to your dashboard and simply drag and drop your files. You can upload documents, images, videos, and entire folders with full folder structure preservation.
+                        </p>
+                    </div>
                 </div>
-                <!-- Feature 3 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-primary mb-md" style="font-variation-settings: 'FILL' 1;">history</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Version History</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Made a mistake? Easily restore previous versions of your documents up to 30 days back with a single click.
-                    </p>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full border-4 border-surface-container-lowest bg-primary-container text-on-primary-container shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-ambient z-10 transition-transform duration-300 group-hover:scale-110">
+                        <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+                    </div>
+                    <div class="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] p-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:shadow-ambient transition-all duration-300">
+                        <div class="flex items-center gap-sm mb-sm">
+                            <span class="font-label-sm text-primary uppercase tracking-wider font-bold">Step 3</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Automatic Encryption</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            This step happens entirely in the background. Before your files are even fully uploaded, CloudVault encrypts them using AES-256 standards, ensuring total privacy.
+                        </p>
+                    </div>
                 </div>
-                <!-- Feature 4 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-secondary mb-md" style="font-variation-settings: 'FILL' 1;">group_add</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Secure Collaboration</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Generate granular access links. Set passwords, expiration dates, and download limits for anyone you share files with.
-                    </p>
+
+                <!-- Step 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full border-4 border-surface-container-lowest bg-secondary-container text-on-secondary-container shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-ambient z-10 transition-transform duration-300 group-hover:scale-110">
+                        <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">devices</span>
+                    </div>
+                    <div class="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] p-lg rounded-2xl bg-surface-container-highest border border-outline-variant/30 hover:shadow-ambient transition-all duration-300">
+                        <div class="flex items-center gap-sm mb-sm">
+                            <span class="font-label-sm text-secondary uppercase tracking-wider font-bold">Step 4</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Manage & Access Anywhere</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Organize your files into folders, share them securely via links, or access them from your mobile device. Your digital life is now perfectly synced.
+                        </p>
+                    </div>
                 </div>
-                <!-- Feature 5 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-primary mb-md" style="font-variation-settings: 'FILL' 1;">phonelink_ring</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Cross-Device Access</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Seamlessly transition between your phone, tablet, and computer. Our responsive web and native apps keep you connected.
-                    </p>
-                </div>
-                <!-- Feature 6 -->
-                <div class="bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 flex flex-col items-start hover:shadow-ambient hover:-translate-y-1 transition-all duration-300">
-                    <span class="material-symbols-outlined text-[40px] text-secondary mb-md" style="font-variation-settings: 'FILL' 1;">insert_chart</span>
-                    <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Storage Analytics</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        Visualize what is taking up space in your vault. Detailed breakdowns help you clean up unneeded large files efficiently.
-                    </p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- Support Section -->
     <section class="max-w-container-max mx-auto px-lg py-3xl text-center">
-        <h2 class="font-headline-lg text-headline-lg text-on-background mb-md">Ready to experience true digital freedom?</h2>
-        <a class="inline-block bg-primary text-on-primary font-label-md text-label-md px-xl py-md rounded-lg hover:-translate-y-1 hover:shadow-ambient transition-all" href="register.html">
-            Create Your Free Account
+        <h2 class="font-headline-md text-headline-md text-on-background mb-md">Still need help getting started?</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Our 24/7 support team is here to assist you with any questions or issues.</p>
+        <a class="inline-block border border-outline-variant text-primary font-label-md text-label-md px-xl py-md rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+            Contact Support
         </a>
     </section>
 </main>
