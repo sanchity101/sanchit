@@ -31,6 +31,13 @@ getRedirectResult(auth).then(async (result) => {
     alert("Google Sign-In failed: " + error.message);
 });
 
+// If the user is already logged in (e.g. they just finished redirecting), send them to the dashboard
+onAuthStateChanged(auth, (user) => {
+    if (user && (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html') || window.location.pathname === '/')) {
+        window.location.href = "dashboard.html";
+    }
+});
+
 async function handleGoogleSignIn() {
     try {
         await signInWithRedirect(auth, googleProvider);
