@@ -5,30 +5,38 @@ import {
     signOut, 
     onAuthStateChanged,
     GoogleAuthProvider,
-    signInWithPopup
+    signInWithRedirect,
+    getRedirectResult
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
 // --- Google Auth Setup ---
 const googleProvider = new GoogleAuthProvider();
 
-async function handleGoogleSignIn() {
-    try {
-        const result = await signInWithPopup(auth, googleProvider);
+// Check if we just came back from a redirect and save the user
+getRedirectResult(auth).then(async (result) => {
+    if (result && result.user) {
         const user = result.user;
-        
-        // Ensure user details exist in Firestore (merge to not overwrite if they already exist)
+        // Ensure user details exist in Firestore
         await setDoc(doc(db, "Users", user.uid), {
             userId: user.uid,
             name: user.displayName,
             email: user.email
         }, { merge: true });
-
-        // Redirect to Dashboard
+        
         window.location.href = "dashboard.html";
+    }
+}).catch((error) => {
+    console.error("Redirect Error:", error);
+    alert("Google Sign-In failed: " + error.message);
+});
+
+async function handleGoogleSignIn() {
+    try {
+        await signInWithRedirect(auth, googleProvider);
     } catch (error) {
         console.error("Error with Google Sign-In:", error);
-        alert("Failed to sign in with Google: " + error.message);
+        alert("Failed to start Google Sign-In: " + error.message);
     }
 }
 
