@@ -197,7 +197,7 @@
 </div>
 <!-- Form Section -->
 <div class="p-xl">
-<form action="dashboard.html" class="space-y-gutter" method="POST">
+<form id="register-form" class="space-y-gutter">
 <!-- Full Name Field -->
 <div>
 <label class="block font-label-md text-label-md text-on-surface mb-sm" for="fullName">Full Name</label>
@@ -229,7 +229,11 @@
 <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline px-sm pointer-events-none" data-icon="lock_reset">lock_reset</span>
 <input class="w-full bg-surface-bright border border-outline-variant rounded-lg pl-3xl pr-md py-md font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none input-glow transition-all duration-200" id="confirmPassword" minlength="8" name="confirmPassword" placeholder="••••••••" required="" type="password"/>
 </div>
-<p class="mt-sm font-label-sm text-label-sm text-outline hidden" id="passwordMismatchError">Passwords do not match.</p>
+</div>
+<!-- Error State Placeholder -->
+<div class="hidden flex items-start p-sm bg-error-container text-on-error-container rounded-md border border-error/20" id="error-message">
+<span aria-hidden="true" class="material-symbols-outlined mr-sm shrink-0" data-icon="error">error</span>
+<p class="font-body-sm text-body-sm"></p>
 </div>
 <!-- Submit Button -->
 <div class="pt-sm">
@@ -239,52 +243,31 @@
 </button>
 </div>
 </form>
+
+<div class="w-full mt-lg">
+<div class="relative">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/50"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-2 bg-surface-container-lowest text-on-surface-variant font-label-sm">Or sign up with</span>
+</div>
+</div>
+<div class="mt-md">
+<button id="google-login-btn" class="w-full flex items-center justify-center gap-sm py-sm px-md border border-outline-variant rounded-lg shadow-sm font-label-md text-label-md text-on-surface bg-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" class="w-5 h-5">
+<span>Sign up with Google</span>
+</button>
+</div>
+</div>
 </div>
 <!-- Footer Section -->
 <div class="px-xl pb-xl pt-lg bg-surface-container-low text-center rounded-b-xl border-t border-surface-variant">
 <p class="font-body-sm text-body-sm text-on-surface-variant">
                 Already have an account? 
-                <a class="font-label-md text-label-md text-primary hover:text-primary-container underline transition-colors duration-200" href="/login">Login</a>
+                <a class="font-label-md text-label-md text-primary hover:text-primary-container underline transition-colors duration-200" href="login.html">Login</a>
 </p>
 </div>
 </main>
-<script>
-        // Simple client-side validation for password match
-        const form = document.querySelector('form');
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const errorText = document.getElementById('passwordMismatchError');
-
-        form.addEventListener('submit', function(e) {
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                e.preventDefault(); // Prevent form submission
-                
-                // Show error styling
-                confirmPasswordInput.classList.remove('border-outline-variant');
-                confirmPasswordInput.classList.add('border-error');
-                
-                // Show error message
-                errorText.classList.remove('hidden');
-                errorText.classList.add('text-error');
-            } else {
-                // Clear error styling
-                confirmPasswordInput.classList.add('border-outline-variant');
-                confirmPasswordInput.classList.remove('border-error');
-                
-                // Hide error message
-                errorText.classList.add('hidden');
-                errorText.classList.remove('text-error');
-            }
-        });
-
-        // Clear error on input
-        confirmPasswordInput.addEventListener('input', function() {
-            if (passwordInput.value === confirmPasswordInput.value) {
-                confirmPasswordInput.classList.add('border-outline-variant');
-                confirmPasswordInput.classList.remove('border-error');
-                errorText.classList.add('hidden');
-                errorText.classList.remove('text-error');
-            }
-        });
-    </script>
+<script type="module" src="js/auth.js"></script>
 </body></html>

@@ -175,7 +175,7 @@
 <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors soft-shadow">
                 Upgrade Storage
             </button>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out mt-sm" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out mt-sm" href="#">
 <span class="material-symbols-outlined">logout</span>
 <span class="font-label-md text-label-md">Logout</span>
 </a>
@@ -290,49 +290,8 @@
 <th class="p-md font-medium text-right">Action</th>
 </tr>
 </thead>
-<tbody class="font-body-sm text-body-sm">
-<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
-<td class="p-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded">picture_as_pdf</span>
-<span class="font-medium text-on-background truncate max-w-[150px]">Q4_Report.pdf</span>
-</td>
-<td class="p-md text-on-surface-variant">Document</td>
-<td class="p-md text-on-surface-variant">2.4 MB</td>
-<td class="p-md text-on-surface-variant hidden sm:table-cell">Today, 09:41 AM</td>
-<td class="p-md text-right">
-<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
-<span class="material-symbols-outlined">download</span>
-</button>
-</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
-<td class="p-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-secondary bg-secondary/10 p-1 rounded">image</span>
-<span class="font-medium text-on-background truncate max-w-[150px]">Hero_Banner_v2.png</span>
-</td>
-<td class="p-md text-on-surface-variant">Image</td>
-<td class="p-md text-on-surface-variant">4.1 MB</td>
-<td class="p-md text-on-surface-variant hidden sm:table-cell">Yesterday</td>
-<td class="p-md text-right">
-<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
-<span class="material-symbols-outlined">download</span>
-</button>
-</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
-<td class="p-md flex items-center gap-sm">
-<span class="material-symbols-outlined text-surface-tint bg-surface-tint/10 p-1 rounded">description</span>
-<span class="font-medium text-on-background truncate max-w-[150px]">Project_Brief.docx</span>
-</td>
-<td class="p-md text-on-surface-variant">Document</td>
-<td class="p-md text-on-surface-variant">842 KB</td>
-<td class="p-md text-on-surface-variant hidden sm:table-cell">Oct 24, 2023</td>
-<td class="p-md text-right">
-<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
-<span class="material-symbols-outlined">download</span>
-</button>
-</td>
-</tr>
+<tbody id="recent-files" class="font-body-sm text-body-sm">
+<!-- Dynamically populated -->
 </tbody>
 </table>
 </div>
@@ -357,4 +316,8 @@
 </div>
 </div>
 </main>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
+<script type="module" src="js/dashboard.js"></script>
 </body></html>

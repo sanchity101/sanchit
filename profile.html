@@ -137,7 +137,7 @@
 </div>
 <div class="mt-auto flex flex-col gap-md">
 <button class="w-full bg-primary text-on-primary rounded-lg py-sm font-label-md text-label-md transition-all duration-200 hover:opacity-90">Upgrade Storage</button>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
 <span class="material-symbols-outlined" data-icon="logout">logout</span>
                 Logout
             </a>
@@ -305,4 +305,7 @@
 </div>
 </div>
 </main>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
 </body></html>

@@ -145,7 +145,7 @@
 </nav>
 <div class="mt-auto pt-lg border-t border-outline-variant/30 flex flex-col gap-md">
 <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg hover:bg-on-primary-fixed transition-colors">Upgrade Storage</button>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
 <span class="material-symbols-outlined">logout</span>
                 Logout
             </a>
@@ -177,13 +177,14 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
 <!-- Upload Area (Bento large) -->
 <div class="lg:col-span-2 flex flex-col gap-md">
-<div class="border-2 border-dashed border-primary/40 rounded-xl bg-surface hover:bg-surface-container-low transition-colors duration-300 flex flex-col items-center justify-center p-3xl text-center min-h-[400px] cursor-pointer group shadow-sm hover:shadow-md">
+<div id="drop-zone" class="border-2 border-dashed border-primary/40 rounded-xl bg-surface hover:bg-surface-container-low transition-colors duration-300 flex flex-col items-center justify-center p-3xl text-center min-h-[400px] cursor-pointer group shadow-sm hover:shadow-md relative">
+<input type="file" id="file-upload" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
 <div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center mb-lg group-hover:scale-110 transition-transform duration-300">
 <span class="material-symbols-outlined text-5xl text-primary" data-weight="fill">cloud_upload</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-background mb-sm">Drag &amp; Drop files here</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-xl">or click to browse your computer</p>
-<button class="bg-primary text-on-primary font-label-md text-label-md py-sm px-xl rounded-lg hover:bg-on-primary-fixed transition-colors shadow-sm">
+<button type="button" class="bg-primary text-on-primary font-label-md text-label-md py-sm px-xl rounded-lg hover:bg-on-primary-fixed transition-colors shadow-sm pointer-events-none">
                             Choose Files
                         </button>
 <div class="mt-xl flex items-center gap-md text-on-surface-variant font-label-sm text-label-sm">
@@ -197,64 +198,17 @@
 <div class="lg:col-span-1 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 p-lg flex flex-col h-full">
 <h3 class="font-headline-md text-headline-md text-on-background mb-lg flex items-center justify-between">
                         Active Uploads
-                        <span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm py-xs px-sm rounded-full">2</span>
+                        <span id="upload-count" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm py-xs px-sm rounded-full">0</span>
 </h3>
-<div class="flex-1 flex flex-col gap-md overflow-y-auto pr-sm">
-<!-- Upload Item 1 -->
-<div class="bg-surface rounded-lg p-md border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm overflow-hidden">
-<span class="material-symbols-outlined text-tertiary">picture_as_pdf</span>
-<p class="font-label-md text-label-md text-on-background truncate">Q4_Financial_Report.pdf</p>
-</div>
-<button class="text-on-surface-variant hover:text-error transition-colors">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
-<span>Uploading...</span>
-<span>45%</span>
-</div>
-<div class="w-full bg-surface-variant rounded-full h-1 mt-xs">
-<div class="bg-gradient-to-r from-primary to-secondary h-1 rounded-full w-[45%]"></div>
-</div>
-</div>
-<!-- Upload Item 2 -->
-<div class="bg-surface rounded-lg p-md border border-outline-variant/30 flex flex-col gap-sm relative overflow-hidden group">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm overflow-hidden">
-<span class="material-symbols-outlined text-tertiary">image</span>
-<p class="font-label-md text-label-md text-on-background truncate">Marketing_Assets_Final.zip</p>
-</div>
-<button class="text-on-surface-variant hover:text-error transition-colors">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
-<span>Uploading...</span>
-<span>82%</span>
-</div>
-<div class="w-full bg-surface-variant rounded-full h-1 mt-xs">
-<div class="bg-gradient-to-r from-primary to-secondary h-1 rounded-full w-[82%]"></div>
-</div>
-</div>
-<!-- Completed Item -->
-<div class="bg-surface-container-low rounded-lg p-md border border-outline-variant/10 flex flex-col gap-sm opacity-70">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-sm overflow-hidden">
-<span class="material-symbols-outlined text-primary">description</span>
-<p class="font-label-md text-label-md text-on-background truncate line-through decoration-outline-variant">Project_Brief_v2.docx</p>
-</div>
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-</div>
-<div class="flex justify-between items-center font-label-sm text-label-sm text-on-surface-variant">
-<span>Complete</span>
-<span>100%</span>
-</div>
-</div>
+<div id="upload-list" class="flex-1 flex flex-col gap-md overflow-y-auto pr-sm">
+<!-- Dynamically populated upload items will go here -->
 </div>
 </div>
 </div>
 </main>
 </div>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
+<script type="module" src="js/upload.js"></script>
 </body></html>

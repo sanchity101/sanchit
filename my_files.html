@@ -149,7 +149,7 @@
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 <span>Settings</span>
 </a>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
 <span class="material-symbols-outlined" data-icon="logout">logout</span>
 <span>Logout</span>
 </a>
@@ -217,85 +217,15 @@
 <div class="col-span-3 md:col-span-1 text-right">Actions</div>
 </div>
 <!-- Table Body -->
-<div class="divide-y divide-outline-variant">
-<!-- Row 1 -->
-<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
-<div class="col-span-6 md:col-span-5 flex items-center gap-3">
-<div class="w-10 h-10 rounded bg-error-container text-on-error-container flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
-</div>
-<div class="truncate">
-<p class="font-body-md text-body-md text-on-surface font-medium truncate">Q4_Financial_Report.pdf</p>
-</div>
-</div>
-<div class="hidden md:flex col-span-2 items-center">
-<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">PDF</span>
-</div>
-<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
-                                4.2 MB
-                            </div>
-<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
-                                Oct 24, 2023
-                            </div>
-<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
-<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-<!-- Row 2 -->
-<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
-<div class="col-span-6 md:col-span-5 flex items-center gap-3">
-<div class="w-10 h-10 rounded bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined" data-icon="image">image</span>
-</div>
-<div class="truncate">
-<p class="font-body-md text-body-md text-on-surface font-medium truncate">Hero_Banner_V2.png</p>
-</div>
-</div>
-<div class="hidden md:flex col-span-2 items-center">
-<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">Image</span>
-</div>
-<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
-                                1.8 MB
-                            </div>
-<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
-                                Oct 22, 2023
-                            </div>
-<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
-<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-<!-- Row 3 -->
-<div class="grid grid-cols-12 gap-4 px-md py-3 items-center hover:bg-surface-container-low transition-colors group">
-<div class="col-span-6 md:col-span-5 flex items-center gap-3">
-<div class="w-10 h-10 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined" data-icon="description">description</span>
-</div>
-<div class="truncate">
-<p class="font-body-md text-body-md text-on-surface font-medium truncate">Project_Alpha_Specs.docx</p>
-</div>
-</div>
-<div class="hidden md:flex col-span-2 items-center">
-<span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm">Document</span>
-</div>
-<div class="col-span-3 md:col-span-2 flex items-center font-body-sm text-body-sm text-on-surface-variant">
-                                856 KB
-                            </div>
-<div class="hidden md:flex col-span-2 items-center font-body-sm text-body-sm text-on-surface-variant">
-                                Oct 20, 2023
-                            </div>
-<div class="col-span-3 md:col-span-1 flex justify-end items-center relative">
-<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container-highest transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
+<div id="file-list" class="divide-y divide-outline-variant">
+<!-- Dynamically populated files will go here -->
 </div>
 </div>
 </div>
 </main>
 </div>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
+<script type="module" src="js/my-files.js"></script>
 </body></html>

@@ -153,7 +153,7 @@
 <span class="material-symbols-outlined text-sm">rocket_launch</span>
                 Upgrade Storage
             </button>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm mt-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm mt-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="#">
 <span class="material-symbols-outlined" data-icon="logout">logout</span>
 <span class="font-label-md text-label-md">Logout</span>
 </a>
@@ -284,4 +284,7 @@
 </div>
 </main>
 </div>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
 </body></html>
