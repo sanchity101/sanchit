@@ -125,11 +125,12 @@ function uploadFile(file) {
         }, 
         (error) => {
             console.error("Upload error:", error);
-            statusEl.textContent = "Error";
+            statusEl.textContent = "Error: " + error.code;
             statusEl.classList.add('text-error');
             activeUploads--;
             updateUploadCount();
-        }, 
+            alert("Upload failed: " + error.message + " (Check Firebase Storage Rules!)");
+        },  
         async () => {
             // Upload completed successfully
             statusEl.textContent = "Complete";
