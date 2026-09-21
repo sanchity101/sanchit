@@ -1,0 +1,16 @@
+{
+  "name": "cloudvault-ctis",
+  "version": "1.0.0",
+  "description": "CloudVault - Secure Cloud Storage Application",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "cloudvault",
+    "cloud-storage",
+    "ctis"
+  ],
+  "author": "Vignesh",
+  "license": "MIT"
+}

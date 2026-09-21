@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudVault - Secure Cloud Storage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#444749",
+                      "on-primary-fixed": "#001355",
+                      "on-background": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#213145",
+                      "surface-container-high": "#dce9ff",
+                      "outline-variant": "#c4c5d9",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-container": "#eef0f2",
+                      "tertiary-fixed": "#e0e3e5",
+                      "tertiary": "#525557",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#434656",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#b8c3ff",
+                      "primary-fixed": "#dde1ff",
+                      "secondary-fixed": "#e9ddff",
+                      "on-secondary-fixed": "#23005c",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "on-primary-fixed-variant": "#0035bd",
+                      "tertiary-container": "#6a6d6f",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "surface-container": "#e5eeff",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-tint": "#104af0",
+                      "on-secondary-container": "#fffbff",
+                      "primary": "#0040df",
+                      "outline": "#747688",
+                      "secondary": "#6b38d4",
+                      "on-tertiary-fixed": "#191c1e",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "on-primary-container": "#efefff",
+                      "secondary-container": "#8455ef",
+                      "surface": "#f8f9ff",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#b8c3ff",
+                      "background": "#f8f9ff",
+                      "primary-container": "#2d5bff",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#d3e4fe",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "container-max": "1440px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "2xl": "48px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "3xl": "64px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                      "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                      "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                      "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                      "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+              }
+      },
+          },
+        }
+      </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .shadow-ambient {
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            }
+            .text-balance {
+                text-wrap: balance;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+<a href="index.html" class="flex items-center gap-sm">
+<img alt="CloudVault Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApJWhsCLUiLH-Ao7dKyI4okBQgqqyXm4266SwkDPJiWlJWS_4NKr4pMOevEJVAmVy52K7v5zy5wyG4WhXfp88sHPlLdu3zfukJDCzl6YcQ5B4fsQtdVywZ6NZne0k-TzFIuABqLyZ3thCdvJP0DpFPfToTXy3s-Ql6BeWEltzR9bM35GiVtaihHpdOcGuYQKXrEpeAp_3QK1B56y3JUneT6OQgETdydvPO2CTISCVxmIUAELT6QSpt"/>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">CloudVault</span>
+</a>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md transition-colors scale-95 duration-150" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md scale-95 duration-150" href="#features">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md scale-95 duration-150" href="#how-it-works">How it Works</a>
+</div>
+<div class="flex items-center gap-md">
+<a class="text-primary font-label-md text-label-md hover:bg-surface-container-low px-md py-sm rounded-lg transition-colors" href="login.html">Login</a>
+<a class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all shadow-sm" href="register.html">Register</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="pt-[100px]">
+<section class="max-w-container-max mx-auto px-lg py-3xl md:py-[120px] flex flex-col md:flex-row items-center gap-2xl">
+<div class="flex-1 space-y-lg text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-on-background text-balance">
+                    Your Files.<br/>
+<span class="text-primary">Anywhere.</span><br/>
+<span class="text-secondary">Anytime.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto md:mx-0 text-balance">
+                    Experience seamless, secure cloud storage designed for modern workflows. Keep your data protected with enterprise-grade encryption while maintaining effortless access across all your devices.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-md pt-md">
+<a class="w-full sm:w-auto bg-primary text-on-primary font-label-md text-label-md px-xl py-md rounded-lg hover:-translate-y-1 hover:shadow-ambient transition-all text-center" href="register.html">
+                        Get Started
+                    </a>
+<a class="w-full sm:w-auto border border-outline-variant text-primary font-label-md text-label-md px-xl py-md rounded-lg hover:bg-surface-container-low transition-colors text-center" href="login.html">
+                        Login
+                    </a>
+</div>
+</div>
+<div class="flex-1 relative w-full aspect-square md:aspect-auto md:h-[600px] rounded-3xl overflow-hidden bg-surface-container-lowest border border-outline-variant/30 shadow-ambient flex items-center justify-center group">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-low to-surface-container-high opacity-50"></div>
+<img class="w-[80%] h-[80%] object-contain relative z-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105" data-alt="A pristine, highly detailed 3D conceptual illustration of abstract digital files glowing softly as they flow seamlessly upward into a stylized, translucent cloud structure. The cloud rests on a sleek, modern server pedestal. The color palette is composed of bright, airy whites, soft light grays, and glowing accents of vibrant digital blue and deep purple. The lighting is soft, studio-quality, casting subtle ambient shadows that enhance the feeling of secure, modern technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1tWRLykm94--0tiPJMqWdJtCeI0hQnf2SEZtrQKpXvI_FtQbs5FSgc44p2_-wn6IOxD5kneDNG0qvZ6PxAbr8ojaEqX8ZprmaOePhX8K_B9fi0LQoe9GiYOh3gmv-LXGoOOUGEpnBH3H9jr4lmTNf5qvPYq1P0MZ59D9r3c06XSEeZnfyUVLSjPmzZqk5fGwWjYmp9r_W6ksQdBZg5oiQ3e_XgvdgPDLvBAwH1RXhSsactv1cdZhO"/>
+</div>
+</section>
+<!-- Features Section (Bento Grid) -->
+<section id="features" class="bg-surface-container-lowest border-y border-outline-variant/20 py-3xl scroll-mt-24">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="text-center mb-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Powerful Features</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[600px] mx-auto text-balance">Everything you need to manage your digital life securely and efficiently.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg auto-rows-[250px]">
+<!-- Secure Storage (Large) -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-low rounded-2xl p-xl border border-outline-variant/30 relative overflow-hidden group hover:shadow-ambient transition-all duration-300">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-primary/10"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<span class="material-symbols-outlined text-[40px] text-primary mb-md" style="font-variation-settings: 'FILL' 1;">security</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-sm">Secure Cloud Storage</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[400px]">End-to-end encryption ensures your sensitive documents and personal files remain strictly confidential and protected from unauthorized access.</p>
+</div>
+</div>
+</div>
+<!-- Easy File Management -->
+<div class="bg-surface-container-highest rounded-2xl p-lg border border-outline-variant/30 flex flex-col justify-between group hover:shadow-ambient transition-all duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-[32px] text-secondary mb-md" style="font-variation-settings: 'FILL' 1;">folder_managed</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-background mb-xs">Easy File Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Intuitive organization tools to keep your digital space clean and structured.</p>
+</div>
+</div>
+<!-- Secure Auth -->
+<div class="bg-surface-bright rounded-2xl p-lg border border-outline-variant/30 flex flex-col justify-between group hover:shadow-ambient transition-all duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-[32px] text-primary mb-md" style="font-variation-settings: 'FILL' 1;">passkey</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-background mb-xs">Secure Authentication</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Multi-factor authentication and biometrics keep your account locked down tight.</p>
+</div>
+</div>
+<!-- Access Anywhere -->
+<div class="md:col-span-3 bg-surface-container rounded-2xl p-xl border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-xl group hover:shadow-ambient transition-all duration-300">
+<div class="flex-1">
+<span class="material-symbols-outlined text-[40px] text-secondary mb-md" style="font-variation-settings: 'FILL' 1;">devices</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-sm">Access Anywhere</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sync your files instantly across your phone, tablet, and desktop. Your data travels with you, perfectly synchronized and always up-to-date.</p>
+</div>
+<div class="w-full md:w-1/3 aspect-video rounded-xl bg-surface-container-highest border border-outline-variant/50 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center opacity-80 mix-blend-multiply transition-transform group-hover:scale-105 duration-700" data-alt="A highly detailed, modern, minimalist still life showing three sleek electronic devices (a modern smartphone, a thin tablet, and a slim laptop) arranged neatly on a smooth, clean white desk surface. The screens glow softly with a matching blue and purple abstract digital interface. The background is a soft, out-of-focus light gray studio setup, conveying a professional, high-end tech environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCN4S3EAYvnVyUTYMPVmwi7kpXQs6jBkQp8k8rkdcSzZwjiIVjoh9oNDWqL52xrAh1YT57JVBo7-YjQHdD-KxzlAgzFhuWlLVvIahVsYTgexUQO0-rtfFvUaNwU6hvoUGlwXwcTUIMclExCHY_KT_l_BtWkFPpWLlzUn3hBqVqmioyFzO2z2EOSW5sn8nslHlTXNE7lHB-M3GJkwP7E2wG656VgQMisGE7MrarT9UF4vgbTyLVkldcB')"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section id="how-it-works" class="max-w-container-max mx-auto px-lg py-3xl scroll-mt-24">
+<div class="text-center mb-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">How It Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A simple, streamlined process to get your files secured.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-center items-start gap-lg relative">
+<!-- Connecting Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-outline-variant/30 z-0"></div>
+<!-- Steps -->
+<div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary/20 flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:border-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container" style="font-variation-settings: 'FILL' 1;">person_add</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs">Create Account</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sign up in seconds.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary/20 flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:border-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container" style="font-variation-settings: 'FILL' 1;">login</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs">Login</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Secure authentication.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary/20 flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:border-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs">Upload</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drag and drop files.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary/20 flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:border-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs">Cloud Storage</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Encrypted &amp; safe.</p>
+</div>
+<div class="flex-1 flex flex-col items-center text-center relative z-10 w-full group">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary/20 flex items-center justify-center mb-md group-hover:bg-primary-container group-hover:border-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container" style="font-variation-settings: 'FILL' 1;">download</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs">Access</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Anytime, anywhere.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg py-3xl max-w-container-max mx-auto gap-lg">
+<div class="flex items-center gap-sm">
+<img alt="CloudVault Logo" class="h-6 w-6 object-contain grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApJWhsCLUiLH-Ao7dKyI4okBQgqqyXm4266SwkDPJiWlJWS_4NKr4pMOevEJVAmVy52K7v5zy5wyG4WhXfp88sHPlLdu3zfukJDCzl6YcQ5B4fsQtdVywZ6NZne0k-TzFIuABqLyZ3thCdvJP0DpFPfToTXy3s-Ql6BeWEltzR9bM35GiVtaihHpdOcGuYQKXrEpeAp_3QK1B56y3JUneT6OQgETdydvPO2CTISCVxmIUAELT6QSpt"/>
+<span class="font-label-md text-label-md font-bold text-primary">CloudVault</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 CloudVault Inc. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline transition-all opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
