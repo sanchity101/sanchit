@@ -26,7 +26,7 @@ import {
 
 // Web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: window.__FIREBASE_API_KEY__ || "YOUR_API_KEY",
+  apiKey: "AIzaSyDWmd7BFG-z_bHKQQok9npE9L6BtloowTk",
   authDomain: "cloud-vault-37f68.firebaseapp.com",
   projectId: "cloud-vault-37f68",
   storageBucket: "cloud-vault-37f68.firebasestorage.app",

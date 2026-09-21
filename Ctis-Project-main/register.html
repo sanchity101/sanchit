@@ -199,7 +199,24 @@
 </div>
 <!-- Form Section -->
 <div class="p-xl">
-<form action="dashboard.html" class="space-y-gutter" method="POST">
+<!-- Google Sign-Up Button -->
+<button type="button" id="google-signup-btn" class="w-full flex items-center justify-center gap-sm py-md px-md border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface bg-surface hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 mb-md">
+<svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+<path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+<path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+<path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+<path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+</svg>
+<span>Sign up with Google</span>
+</button>
+
+<div class="relative flex py-1 items-center w-full mb-md">
+<div class="flex-grow border-t border-outline-variant/40"></div>
+<span class="flex-shrink mx-3 text-outline text-xs uppercase font-medium">or register with email</span>
+<div class="flex-grow border-t border-outline-variant/40"></div>
+</div>
+
+<form class="space-y-gutter" method="POST">
 <!-- Full Name Field -->
 <div>
 <label class="block font-label-md text-label-md text-on-surface mb-sm" for="fullName">Full Name</label>
@@ -221,7 +238,7 @@
 <label class="block font-label-md text-label-md text-on-surface mb-sm" for="password">Password</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline px-sm pointer-events-none" data-icon="lock">lock</span>
-<input class="w-full bg-surface-bright border border-outline-variant rounded-lg pl-3xl pr-md py-md font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none input-glow transition-all duration-200" id="password" minlength="8" name="password" placeholder="••••••••" required="" type="password"/>
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg pl-3xl pr-md py-md font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none input-glow transition-all duration-200" id="password" minlength="6" name="password" placeholder="••••••••" required="" type="password"/>
 </div>
 </div>
 <!-- Confirm Password Field -->
@@ -229,13 +246,20 @@
 <label class="block font-label-md text-label-md text-on-surface mb-sm" for="confirmPassword">Confirm Password</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline px-sm pointer-events-none" data-icon="lock_reset">lock_reset</span>
-<input class="w-full bg-surface-bright border border-outline-variant rounded-lg pl-3xl pr-md py-md font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none input-glow transition-all duration-200" id="confirmPassword" minlength="8" name="confirmPassword" placeholder="••••••••" required="" type="password"/>
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg pl-3xl pr-md py-md font-body-md text-body-md text-on-surface placeholder:text-outline-variant focus:outline-none input-glow transition-all duration-200" id="confirmPassword" minlength="6" name="confirmPassword" placeholder="••••••••" required="" type="password"/>
 </div>
-<p class="mt-sm font-label-sm text-label-sm text-outline hidden" id="passwordMismatchError">Passwords do not match.</p>
+<p class="mt-sm font-label-sm text-label-sm text-error hidden" id="passwordMismatchError">Passwords do not match.</p>
 </div>
+
+<!-- General Error Box -->
+<div class="hidden flex items-start p-sm bg-error-container text-on-error-container rounded-md border border-error/20" id="register-error">
+<span aria-hidden="true" class="material-symbols-outlined mr-sm shrink-0" data-icon="error">error</span>
+<p class="font-body-sm text-body-sm" id="register-error-text"></p>
+</div>
+
 <!-- Submit Button -->
 <div class="pt-sm">
-<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors duration-200 flex items-center justify-center gap-sm" type="submit">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors duration-200 flex items-center justify-center gap-sm" type="submit" id="submit-btn">
                         Create Account
                         <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
 </button>
@@ -246,46 +270,114 @@
 <div class="px-xl pb-xl pt-lg bg-surface-container-low text-center rounded-b-xl border-t border-surface-variant">
 <p class="font-body-sm text-body-sm text-on-surface-variant">
                 Already have an account? 
-                <a class="font-label-md text-label-md text-primary hover:text-primary-container underline transition-colors duration-200" href="/login">Login</a>
+                <a class="font-label-md text-label-md text-primary hover:text-primary-container underline transition-colors duration-200" href="login.html">Login</a>
 </p>
 </div>
 </main>
-<script>
-        // Simple client-side validation for password match
+<script type="module">
+        import {
+            auth,
+            googleProvider,
+            createUserWithEmailAndPassword,
+            updateProfile,
+            signInWithPopup,
+            syncUserProfile
+        } from "./firebase-config.js";
+
         const form = document.querySelector('form');
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const confirmPasswordInput = document.getElementById('confirmPassword');
-        const errorText = document.getElementById('passwordMismatchError');
+        const mismatchError = document.getElementById('passwordMismatchError');
+        const errorBox = document.getElementById('register-error');
+        const errorText = document.getElementById('register-error-text');
+        const googleBtn = document.getElementById('google-signup-btn');
+        const submitBtn = document.getElementById('submit-btn');
 
-        form.addEventListener('submit', function(e) {
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                e.preventDefault(); // Prevent form submission
-                
-                // Show error styling
-                confirmPasswordInput.classList.remove('border-outline-variant');
-                confirmPasswordInput.classList.add('border-error');
-                
-                // Show error message
-                errorText.classList.remove('hidden');
-                errorText.classList.add('text-error');
-            } else {
-                // Clear error styling
-                confirmPasswordInput.classList.add('border-outline-variant');
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorBox.classList.remove('hidden');
+        }
+
+        function hideError() {
+            errorBox.classList.add('hidden');
+        }
+
+        // Real-time password match check
+        confirmPasswordInput.addEventListener('input', () => {
+            if (passwordInput.value === confirmPasswordInput.value) {
                 confirmPasswordInput.classList.remove('border-error');
-                
-                // Hide error message
-                errorText.classList.add('hidden');
-                errorText.classList.remove('text-error');
+                mismatchError.classList.add('hidden');
             }
         });
 
-        // Clear error on input
-        confirmPasswordInput.addEventListener('input', function() {
-            if (passwordInput.value === confirmPasswordInput.value) {
-                confirmPasswordInput.classList.add('border-outline-variant');
-                confirmPasswordInput.classList.remove('border-error');
-                errorText.classList.add('hidden');
-                errorText.classList.remove('text-error');
+        // Google Sign-Up
+        googleBtn.addEventListener('click', async () => {
+            hideError();
+            googleBtn.disabled = true;
+            try {
+                const result = await signInWithPopup(auth, googleProvider);
+                await syncUserProfile(result.user);
+                window.location.href = "dashboard.html";
+            } catch (error) {
+                console.error("Google sign up error:", error);
+                if (error.code === 'auth/unauthorized-domain') {
+                    showError("Domain (localhost) is not authorized in Firebase Console > Authentication > Settings > Authorized domains.");
+                } else if (error.code === 'auth/popup-closed-by-user') {
+                    showError("Google Sign-In popup was closed before completing.");
+                } else {
+                    showError(error.message || "Failed to sign up with Google.");
+                }
+            } finally {
+                googleBtn.disabled = false;
+            }
+        });
+
+        // Email / Password Registration
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordInput.classList.add('border-error');
+                mismatchError.classList.remove('hidden');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Creating Account...";
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(
+                    auth,
+                    emailInput.value.trim(),
+                    passwordInput.value
+                );
+                const user = userCredential.user;
+                const name = fullNameInput.value.trim();
+
+                // Update Auth Profile
+                await updateProfile(user, { displayName: name });
+
+                // Sync to Firestore /users/{uid}
+                await syncUserProfile(user, { displayName: name });
+
+                window.location.href = "dashboard.html";
+            } catch (error) {
+                console.error("Registration error:", error);
+                let friendlyMessage = error.message;
+                if (error.code === 'auth/email-already-in-use') {
+                    friendlyMessage = "An account with this email already exists. Please log in.";
+                } else if (error.code === 'auth/weak-password') {
+                    friendlyMessage = "Password should be at least 6 characters.";
+                } else if (error.code === 'auth/invalid-email') {
+                    friendlyMessage = "Please provide a valid email address.";
+                }
+                showError(friendlyMessage);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Create Account";
             }
         });
     </script>

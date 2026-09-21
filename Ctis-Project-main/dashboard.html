@@ -175,7 +175,7 @@
 <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors soft-shadow">
                 Upgrade Storage
             </button>
-<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out mt-sm" href="login.html">
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out mt-sm cursor-pointer" href="#">
 <span class="material-symbols-outlined">logout</span>
 <span class="font-label-md text-label-md">Logout</span>
 </a>
@@ -200,7 +200,7 @@
 <span class="material-symbols-outlined">notifications</span>
 <span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
 </button>
-<img class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A clear, professional headshot of a user smiling warmly, set against a neutral light grey background, representing a high-quality user profile avatar for a corporate dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0yu6IU_07CKknRVqwAuJ0VhW0_c0ebUiyrhZcQNW6mQf1jcrNHiDTOVCzDkPDGuD9G-2UVTctQp6PcWnUyq6KZAWt8OnFEi915MAv1Ji88M5ZyJTV5P3qTeoJ5tUjNvCGHiuXKETri4wb6iu2iHBLINhiUNH62bzR3BIGJCNxctTEHaCRja06rJDibaZgPhLzwR4m9ve3ud-u2TMVxEMGuUPantM9tgNI4Cbk0XpdZEeVY66zoT9F"/>
+<img id="user-avatar" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0yu6IU_07CKknRVqwAuJ0VhW0_c0ebUiyrhZcQNW6mQf1jcrNHiDTOVCzDkPDGuD9G-2UVTctQp6PcWnUyq6KZAWt8OnFEi915MAv1Ji88M5ZyJTV5P3qTeoJ5tUjNvCGHiuXKETri4wb6iu2iHBLINhiUNH62bzR3BIGJCNxctTEHaCRja06rJDibaZgPhLzwR4m9ve3ud-u2TMVxEMGuUPantM9tgNI4Cbk0XpdZEeVY66zoT9F"/>
 </div>
 </header>
 <!-- Scrollable Canvas -->
@@ -208,7 +208,7 @@
 <div class="max-w-container-max mx-auto space-y-xl">
 <!-- Welcome Section -->
 <div>
-<h2 class="font-headline-lg text-headline-lg text-on-background mb-base">Good Morning, Alex</h2>
+<h2 id="user-greeting" class="font-headline-lg text-headline-lg text-on-background mb-base">Good Morning</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant">Here's what's happening with your files.</p>
 </div>
 <!-- Bento Grid Layout -->
@@ -355,6 +355,51 @@
 </div>
 </div>
 </div>
-</div>
 </main>
+<script type="module">
+    import {
+        auth,
+        onAuthStateChanged,
+        signOut,
+        syncUserProfile
+    } from "./firebase-config.js";
+
+    const greeting = document.getElementById('user-greeting');
+    const avatar = document.getElementById('user-avatar');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // Auth Protection
+    onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        try {
+            const profile = await syncUserProfile(user);
+            const displayName = profile?.displayName || user.displayName || user.email?.split('@')[0] || "User";
+            if (greeting) {
+                greeting.textContent = `Welcome back, ${displayName}`;
+            }
+            if (avatar && user.photoURL) {
+                avatar.src = user.photoURL;
+            }
+        } catch (e) {
+            console.error("Error syncing profile:", e);
+        }
+    });
+
+    // Logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            try {
+                await signOut(auth);
+                window.location.href = "login.html";
+            } catch (err) {
+                console.error("Logout error:", err);
+            }
+        });
+    }
+</script>
 </body></html>
