@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CloudVault - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#001355",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c5d9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#eef0f2",
+                        "tertiary-fixed": "#e0e3e5",
+                        "tertiary": "#525557",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#23005c",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-primary-fixed-variant": "#0035bd",
+                        "tertiary-container": "#6a6d6f",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#104af0",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#0040df",
+                        "outline": "#747688",
+                        "secondary": "#6b38d4",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-container": "#efefff",
+                        "secondary-container": "#8455ef",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b8c3ff",
+                        "background": "#f8f9ff",
+                        "primary-container": "#2d5bff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "3xl": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden antialiased font-body-md text-body-md">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full flex-col p-md bg-surface-container-lowest dark:bg-inverse-surface shadow-sm docked left-0 h-full w-[280px] z-20">
+<div class="flex items-center gap-sm mb-xl">
+<img class="w-8 h-8 object-contain" data-alt="A small, stylized cloud icon serving as the logo for a secure digital storage service called CloudVault, rendered in a crisp, modern vector style with bright blue tones against a clean white background, conveying a sense of safety and advanced technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6ITbTMYEaokgUVR9ovkqO2-z5NiRd6diM-QkADRyAx7wmwMMY0x-5Ga2AioCQhAgJ0omRHsb1yic57nDzHRi1syx57O62iYWkQvB9BKKvmB5KwhQwj0kNKaDmSNtcOQ6nmB0AxWQCC3Ui4u6bV39RM1QhaKLgnICLGydpAEIjkJEQQ8igdfyA_mzSPKzfnPbQ6lESYFbM1YtxzjXPhwHjKnv_coDhc0qc2ixVa3CQTIOZ4IkZ8Mu3"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CloudVault</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Secure Storage</p>
+</div>
+</div>
+<ul class="flex flex-col gap-sm flex-grow">
+<!-- Active state -->
+<li>
+<a class="flex items-center gap-md bg-primary-container text-on-primary-container rounded-lg px-md py-sm transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<!-- Inactive states -->
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="my_files.html">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-md text-label-md">My Files</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="upload.html">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="font-label-md text-label-md">Upload</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="profile.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors soft-shadow">
+                Upgrade Storage
+            </button>
+<a id="logout-btn" class="flex items-center gap-md text-on-surface-variant dark:text-tertiary-fixed-dim px-md py-sm hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-lg transition-all duration-200 ease-in-out mt-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[280px] h-full overflow-hidden">
+<!-- TopAppBar (from JSON) -->
+<header class="flex justify-between items-center px-lg py-md w-full bg-surface-bright dark:bg-background flat no shadows z-10 border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<!-- Mobile menu toggle placeholder -->
+<button class="md:hidden text-on-surface p-sm hover:bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-xl pr-md py-sm rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm w-64 transition-all" placeholder="Search files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-shadow duration-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<img class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A clear, professional headshot of a user smiling warmly, set against a neutral light grey background, representing a high-quality user profile avatar for a corporate dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0yu6IU_07CKknRVqwAuJ0VhW0_c0ebUiyrhZcQNW6mQf1jcrNHiDTOVCzDkPDGuD9G-2UVTctQp6PcWnUyq6KZAWt8OnFEi915MAv1Ji88M5ZyJTV5P3qTeoJ5tUjNvCGHiuXKETri4wb6iu2iHBLINhiUNH62bzR3BIGJCNxctTEHaCRja06rJDibaZgPhLzwR4m9ve3ud-u2TMVxEMGuUPantM9tgNI4Cbk0XpdZEeVY66zoT9F"/>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-lg md:p-xl scroll-smooth">
+<div class="max-w-container-max mx-auto space-y-xl">
+<!-- Welcome Section -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-base">Good Morning, Alex</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here's what's happening with your files.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-lg">
+<!-- Main Storage Visualization (Spans 2 columns) -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-lowest rounded-xl p-lg soft-shadow hover-lift flex flex-col justify-between border border-outline-variant/20 relative overflow-hidden">
+<div class="z-10 relative">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-xs">Storage Overview</h3>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-on-background">1.8 GB</span>
+<span class="font-body-md text-body-md text-outline">/ 10 GB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl opacity-80">cloud</span>
+</div>
+<div class="mt-xl">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-sm">
+<span>Used Space</span>
+<span class="text-primary font-bold">18%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 18%;"></div>
+</div>
+</div>
+</div>
+<!-- Abstract background element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+<!-- Quick Stats Cards -->
+<div class="bg-surface-container-lowest rounded-xl p-lg soft-shadow hover-lift border border-outline-variant/20 flex flex-col justify-center">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Total Files</h3>
+</div>
+<p class="font-headline-lg text-headline-lg text-on-background">24</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-lg soft-shadow hover-lift border border-outline-variant/20 flex flex-col justify-center">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Recent Uploads</h3>
+</div>
+<p class="font-headline-lg text-headline-lg text-on-background">5</p>
+</div>
+<!-- Quick Actions -->
+<div class="md:col-span-3 lg:col-span-4 flex flex-wrap gap-md mt-sm">
+<a href="upload.html" class="flex items-center gap-sm bg-primary text-on-primary font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                            Upload File
+                        </a>
+<a href="my_files.html" class="flex items-center gap-sm bg-surface-container-lowest text-primary font-label-md text-label-md py-sm px-lg rounded-lg border border-primary/30 hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">folder</span>
+                            My Files
+                        </a>
+<button class="flex items-center gap-sm bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md py-sm px-lg rounded-lg border border-outline-variant/50 hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">history</span>
+                            Recent Files
+                        </button>
+</div>
+<!-- Recent Files Table -->
+<div class="md:col-span-2 lg:col-span-3 bg-surface-container-lowest rounded-xl soft-shadow border border-outline-variant/20 overflow-hidden">
+<div class="p-lg border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-background">Recent Files</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant/20 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="p-md font-medium">Name</th>
+<th class="p-md font-medium">Type</th>
+<th class="p-md font-medium">Size</th>
+<th class="p-md font-medium hidden sm:table-cell">Date</th>
+<th class="p-md font-medium text-right">Action</th>
+</tr>
+</thead>
+<tbody id="recent-files" class="font-body-sm text-body-sm">
+<!-- Dynamically populated -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- File Type Analytics (Small Donut Chart Placeholder) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg soft-shadow border border-outline-variant/20 flex flex-col items-center justify-center relative overflow-hidden">
+<h3 class="font-label-md text-label-md text-on-surface-variant self-start w-full uppercase tracking-wider mb-md">File Types</h3>
+<!-- Simple CSS Donut Chart abstraction -->
+<div class="relative w-32 h-32 rounded-full mb-md" style="background: conic-gradient(#0040df 0% 45%, #6b38d4 45% 75%, #104af0 75% 90%, #dce9ff 90% 100%);">
+<div class="absolute inset-4 bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-outline">Types</span>
+</div>
+</div>
+<div class="w-full grid grid-cols-2 gap-sm text-body-sm font-body-sm">
+<div class="flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-[#0040df]"></span> <span class="text-on-surface-variant">Images</span></div>
+<div class="flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-[#6b38d4]"></span> <span class="text-on-surface-variant">Docs</span></div>
+<div class="flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-[#104af0]"></span> <span class="text-on-surface-variant">PDFs</span></div>
+<div class="flex items-center gap-xs"><span class="w-2 h-2 rounded-full bg-[#dce9ff]"></span> <span class="text-on-surface-variant">Video</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script type="module" src="js/protected-route.js"></script>
+<script type="module" src="js/dashboard.js"></script>
+</body></html>
