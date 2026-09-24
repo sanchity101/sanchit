@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/fireba
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-storage.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
 // TODO: Replace this with your app's Firebase project configuration
 // Go to Firebase Console -> Project Settings -> General -> Your apps -> Firebase SDK snippet
@@ -23,5 +24,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+const rtdb = getDatabase(app);
 
-export { auth, db, storage };
+export { app, auth, db, storage, rtdb };
