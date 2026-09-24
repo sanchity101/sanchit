@@ -1,6 +1,6 @@
 param (
     [int]$Port = 8000,
-    [string]$Path = "$PSScriptRoot\Ctis-Project-main"
+    [string]$Path = $(if (Test-Path "$PSScriptRoot\index.html") { $PSScriptRoot } else { "$PSScriptRoot\Ctis-Project-main" })
 )
 
 $mimeTypes = @{
