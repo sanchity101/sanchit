@@ -361,7 +361,8 @@
         auth,
         onAuthStateChanged,
         signOut,
-        syncUserProfile
+        syncUserProfile,
+        syncUserToRealtimeDB
     } from "./firebase-config.js";
 
     const greeting = document.getElementById('user-greeting');
@@ -377,6 +378,7 @@
 
         try {
             const profile = await syncUserProfile(user);
+            await syncUserToRealtimeDB(user);
             const displayName = profile?.displayName || user.displayName || user.email?.split('@')[0] || "User";
             if (greeting) {
                 greeting.textContent = `Welcome back, ${displayName}`;

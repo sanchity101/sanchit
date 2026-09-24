@@ -193,7 +193,8 @@
             googleProvider,
             signInWithPopup,
             signInWithEmailAndPassword,
-            syncUserProfile
+            syncUserProfile,
+            syncUserToRealtimeDB
         } from "./firebase-config.js";
 
         const form = document.querySelector('form');
@@ -220,6 +221,7 @@
             try {
                 const result = await signInWithPopup(auth, googleProvider);
                 await syncUserProfile(result.user);
+                await syncUserToRealtimeDB(result.user);
                 window.location.href = "dashboard.html";
             } catch (error) {
                 console.error("Google sign-in error:", error);
@@ -245,6 +247,7 @@
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, emailInput.value.trim(), passwordInput.value);
                 await syncUserProfile(userCredential.user);
+                await syncUserToRealtimeDB(userCredential.user);
                 window.location.href = "dashboard.html";
             } catch (error) {
                 console.error("Login error:", error);

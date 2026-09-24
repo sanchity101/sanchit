@@ -23,11 +23,23 @@ import {
   onSnapshot,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+  push,
+  update,
+  remove,
+  onValue
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 // Web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDWmd7BFG-z_bHKQQok9npE9L6BtloowTk",
   authDomain: "cloud-vault-37f68.firebaseapp.com",
+  databaseURL: "https://cloud-vault-37f68-default-rtdb.firebaseio.com",
   projectId: "cloud-vault-37f68",
   storageBucket: "cloud-vault-37f68.firebasestorage.app",
   messagingSenderId: "1035087710500",
@@ -37,6 +49,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const rtdb = getDatabase(app);
 const googleProvider = new GoogleAuthProvider();
 
 /**
@@ -61,10 +74,33 @@ async function syncUserProfile(user, additionalData = {}) {
   return snap.data();
 }
 
+/**
+ * Ensures user document exists in Realtime Database /users/{uid}
+ */
+async function syncUserToRealtimeDB(user, additionalData = {}) {
+  if (!user) return null;
+  const userRef = ref(rtdb, `users/${user.uid}`);
+  const snap = await get(userRef);
+
+  if (!snap.exists()) {
+    const profile = {
+      email: user.email,
+      displayName: additionalData.displayName || user.displayName || "User",
+      createdAt: Date.now(),
+      plan: "free",
+      storageUsed: 0
+    };
+    await set(userRef, profile);
+    return profile;
+  }
+  return snap.val();
+}
+
 export {
   app,
   auth,
   db,
+  rtdb,
   googleProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
@@ -72,6 +108,7 @@ export {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  // Firestore
   doc,
   setDoc,
   getDoc,
@@ -82,5 +119,15 @@ export {
   getDocs,
   onSnapshot,
   serverTimestamp,
-  syncUserProfile
+  syncUserProfile,
+  // Realtime Database
+  ref,
+  set,
+  get,
+  child,
+  push,
+  update,
+  remove,
+  onValue,
+  syncUserToRealtimeDB
 };

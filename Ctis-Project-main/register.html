@@ -281,7 +281,8 @@
             createUserWithEmailAndPassword,
             updateProfile,
             signInWithPopup,
-            syncUserProfile
+            syncUserProfile,
+            syncUserToRealtimeDB
         } from "./firebase-config.js";
 
         const form = document.querySelector('form');
@@ -319,6 +320,7 @@
             try {
                 const result = await signInWithPopup(auth, googleProvider);
                 await syncUserProfile(result.user);
+                await syncUserToRealtimeDB(result.user);
                 window.location.href = "dashboard.html";
             } catch (error) {
                 console.error("Google sign up error:", error);
@@ -360,8 +362,9 @@
                 // Update Auth Profile
                 await updateProfile(user, { displayName: name });
 
-                // Sync to Firestore /users/{uid}
+                // Sync to Firestore & Realtime Database
                 await syncUserProfile(user, { displayName: name });
+                await syncUserToRealtimeDB(user, { displayName: name });
 
                 window.location.href = "dashboard.html";
             } catch (error) {
